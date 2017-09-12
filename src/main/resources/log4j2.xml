@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration status="off">
+    <!--先定义所有的appender-->
+        <properties> 
+        <!-- 日志根目录  -->
+        <property name="LOG_HOME">logs</property> 
+		 <!-- 上报日志根目录  -->
+        <property name="DATALOG_HOME">logs/reportMsg</property> 
+        <!--切割日志根目录 -->
+        <property name="SPILT_HOME">/usr/local/mqtt/logs</property> 
+        <!--节点名称  -->
+        <property name="STRATEGY_NAME">003</property>
+		<!--日志切割时间间隔 单位：分钟  -->
+        <property name="SPILT_TIME">1</property>
+    </properties> 
+    <appenders>
+        <!--这个输出控制台的配置-->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+<!--             <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY"/> -->
+            <!--这个都知道是输出日志的格式-->
+            <PatternLayout pattern="[%p][%d{ISO8601}][%l]%m%n"/>
+        </Console>
+         <!-- 上报消息下发日志 -->
+           <RollingFile  name="reportMsg" fileName="${DATALOG_HOME}/reportMsg.log"
+                     filePattern="${SPILT_HOME}/reportMsg_${STRATEGY_NAME}_%d{yyyyMMddHHmm}.dat">
+            <PatternLayout pattern="%m%n"/>
+              <Policies>    
+            <TimeBasedTriggeringPolicy interval="${SPILT_TIME}" modulate="true" />    
+        </Policies> 
+        </RollingFile>
+        
+            <RollingFile name="debug" fileName="${LOG_HOME}/mqtt_debug.log"
+                     filePattern="${LOG_HOME}/mqtt_debug.log_%d{yyyyMMdd}.dat">
+            <PatternLayout pattern="[%p][%d{ISO8601}][%l]%m%n"/>
+            <SizeBasedTriggeringPolicy size="50M"/>
+            </RollingFile>
+
+			  <RollingFile name="error" fileName="${LOG_HOME}/mqtt_error.log"
+                     filePattern="${LOG_HOME}/mqtt_error.log_%d{yyyyMMdd}.dat">
+			<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="[%p][%d{ISO8601}][%l]%m%n"/>
+            <SizeBasedTriggeringPolicy size="50M"/>
+            </RollingFile>
+    </appenders>
+    <!--然后定义logger，分别引入对应的appender，实现定向输出-->
+    <loggers>
+    <!--     上报日志消息 -->
+      <AsyncLogger name="reportMsg" level="debug" additivity="false">
+             <appender-ref ref="reportMsg"/> 
+        </AsyncLogger>
+        
+        <!--建立一个默认的root的logger-->
+        <root level="debug" includeLocation="true">
+             <appender-ref ref="debug"/>
+			 <appender-ref ref="error"/>
+             <appender-ref ref="Console"/>
+        </root>
+
+    </loggers>
+</configuration>

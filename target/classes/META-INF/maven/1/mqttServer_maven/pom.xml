@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>1</groupId>
+  <artifactId>mqttServer_maven</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+     <!--   添加私有仓库地址 -->
+      <repositories>
+          <repository>
+              <id>nexus</id>
+              <name>Team Nexus Repository</name>
+              <url>http://192.168.5.46:8081/nexus/content/groups/public/</url>
+          </repository>
+      </repositories>  
+      <!--   添加插件地址 -->
+        <pluginRepositories>
+          <pluginRepository>
+             <id>nexus</id>
+             <name>Team Nexus Repository</name>
+             <url>http://192.168.5.46:8081/nexus/content/groups/public/</url>
+         </pluginRepository>
+     </pluginRepositories> 
+     <!--   添加oracle驱动构件 -->
+     
+     <dependencies>
+     <dependency>
+  <groupId>com.avit</groupId>
+  <artifactId>common</artifactId>
+  <version>1.1</version>
+</dependency>
+
+<dependency>
+  <groupId>commons-codec</groupId>
+  <artifactId>commons-codec</artifactId>
+  <version>1.4</version>
+</dependency>
+
+<dependency>
+  <groupId>commons-configuration</groupId>
+  <artifactId>commons-configuration</artifactId>
+  <version>1.9</version>
+</dependency>
+
+<dependency>
+  <groupId>commons-httpclient</groupId>
+  <artifactId>commons-httpclient</artifactId>
+  <version>3.0.1</version>
+</dependency>
+
+<dependency>
+  <groupId>commons-lang</groupId>
+  <artifactId>commons-lang</artifactId>
+  <version>2.5</version>
+</dependency>
+
+<dependency>
+  <groupId>commons-logging</groupId>
+  <artifactId>commons-logging</artifactId>
+  <version>1.1.1</version>
+  <classifier>sources</classifier>
+</dependency>
+
+<dependency>
+  <groupId>com.lmax</groupId>
+  <artifactId>disruptor</artifactId>
+  <version>3.0.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.google.code.gson</groupId>
+  <artifactId>gson</artifactId>
+  <version>2.2.2</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.logging.log4j</groupId>
+  <artifactId>log4j-api</artifactId>
+  <version>2.6.1</version>
+</dependency>
+
+<dependency>
+  <groupId>org.apache.logging.log4j</groupId>
+  <artifactId>log4j-core</artifactId>
+  <version>2.6.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>5.1.23</version>
+</dependency>
+
+<dependency>
+  <groupId>io.netty</groupId>
+  <artifactId>netty-all</artifactId>
+  <version>4.1.15.Final</version>
+</dependency>
+     
+     </dependencies>
+  
+  <build/>
+</project>
