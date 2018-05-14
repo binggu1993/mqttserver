@@ -1,5 +1,5 @@
-# mqttserver
-mqttserver，基于netty 4.1.1，可解码http、mqtt协议请求。
+
+#mqttserver，基于netty 4.1.1，可解码http、mqtt协议请求。
 ----
 项目包括
 1.基于netty绑定端口监听，对于mqtt消息和http请求消息分别绑定不同的监听端口；<br>
