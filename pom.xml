@@ -1,33 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>1</groupId>
   <artifactId>mqttServer_maven</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-     <!--   添加私有仓库地址 -->
-      <repositories>
-          <repository>
-              <id>nexus</id>
-              <name>Team Nexus Repository</name>
-              <url>http://192.168.5.46:8081/nexus/content/groups/public/</url>
-          </repository>
-      </repositories>  
-      <!--   添加插件地址 -->
-        <pluginRepositories>
-          <pluginRepository>
-             <id>nexus</id>
-             <name>Team Nexus Repository</name>
-             <url>http://192.168.5.46:8081/nexus/content/groups/public/</url>
-         </pluginRepository>
-     </pluginRepositories> 
-     <!--   添加oracle驱动构件 -->
-     
+  <version>0.0.1-SNAPSHOT</version>  
      <dependencies>
-     <dependency>
-  <groupId>com.avit</groupId>
-  <artifactId>common</artifactId>
-  <version>1.1</version>
-</dependency>
+
 
 <dependency>
   <groupId>commons-codec</groupId>
