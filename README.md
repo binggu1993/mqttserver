@@ -1,7 +1,7 @@
 
-#mqttserver，基于netty 4.1.1，可解码http、mqtt协议请求。
+mqttserver，基于netty 4.1.1，可解码http、mqtt协议请求。
 ----
-项目包括
+项目包括：<br>
 1.基于netty绑定端口监听，对于mqtt消息和http请求消息分别绑定不同的监听端口；<br>
 2.在MQTTServerInitializer中，分别添加mqtt编码解码器和http编码解码器，并分别将自定义的mqtt消息处理handle类和http消息handle类添加到信道中。添加心跳监听<br>
 3.在MQTTServerHandler中实现对mqtt消息的自定义处理。该handle类中处理包含内容：<br>
